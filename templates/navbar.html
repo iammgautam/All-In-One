@@ -16,7 +16,7 @@
       {% if request.user.is_authenticated %}
       <li><a href="#" class="nav-links">Chat</a></li>
       <li><a href="{% url 'profile' %}" class="nav-links">Profile</a></li>
-      <li><a href="#" class="nav-links">Task</a></li>
+      <li><a href="{% url 'todo-home' %}" class="nav-links">Task</a></li>
       <li>
         <a href="{% url 'logout' %}" class="nav-links nav-links-btn">Log Out</a>
       </li>

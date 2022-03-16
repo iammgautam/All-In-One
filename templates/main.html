@@ -13,6 +13,7 @@
     />
     <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
     <link rel="stylesheet" href="{% static 'styles/main.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/todo.css' %}">
     <title>ZengoChat</title>
   </head>
   <body>
@@ -36,6 +37,11 @@
     {% block profileForm %} {% endblock profileForm %}
     {% block register %}{% endblock register %}
     {% block passwordReset %}{% endblock passwordReset %}
+    {% block todo-home %}{% endblock todo-home %}
+    {% block todo-detail %}{% endblock todo-detail %}
+    {% block todo-delete %}{% endblock todo-delete %}
+    {% block todo-add %}{% endblock todo-add %}
+    {% block todo-update %}{% endblock todo-update %}
 
       <script>
         const alert = document.getElementById("alert-box");
