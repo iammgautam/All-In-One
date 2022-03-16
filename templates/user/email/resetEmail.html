@@ -1,0 +1,45 @@
+{% extends 'main.html' %} {% load static %} {% block home %}
+
+{% comment %} MODAL CONTENT (Login Modal) {% endcomment %}
+<div class="modal" id="login-modal">
+    <div class="modal-content">
+      <span class="close-btn close-login-btn">&times;</span>
+      <div class="modal-content-left">
+        <img id="modal-img" src="{% static 'images/login.svg' %}" alt="" />
+      </div>
+      <div class="modal-content-right">
+        <form action="{% url 'login' %}" method="POST" class="modal-form" id="form">
+            {% csrf_token %}
+          <h1>Hello 👋, It's Good to see you Back. Please Login Here.</h1>
+          <div class="form-validation">
+            <input
+              type="text"
+              class="modal-input"
+              id="username"
+              name="username"
+              placeholder="Enter Your Username"
+            />
+            <p>Error Message</p>
+          </div>
+  
+          <div class="form-validation">
+            <input
+              type="password"
+              class="modal-input"
+              id="password"
+              name="password"
+              placeholder="Enter Your Password"
+            />
+            <p>Error Message</p>
+          </div>
+  
+          <input type="submit" class="modal-input-btn" value="Login" />
+          <span class="modal-input-signup">Don't have an Account? <a href="#">Sign Up</a></span>
+        </form>
+      </div>
+    </div>
+  </div>
+  
+  <script src= {% static 'js/app.js' %}>
+  </script>
+  {% endblock home %}

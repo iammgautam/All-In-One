@@ -1,0 +1,100 @@
+.registrationForm {
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: row-reverse;
+    height: 89vh;
+    background-color: var(--dark-grey);
+}
+.form-regi {
+    /* border: 1px solid red; */
+    margin: 0 auto;
+    text-align: center;
+}
+
+.regi-button {
+    margin-top: 28px;
+    border-radius: 10px;
+    width: 350px;
+    height: 2.6rem;
+    background-color: var(--dark-grey);
+    outline: none;
+    border: none;
+    color:  var(--white);
+    font-size:  1.2rem;
+}
+.regi-button:hover{
+    cursor: pointer;
+    background-color:  var(--bright-red);
+    transition: all 0.2s ease-out;
+}
+h1{
+    font-size: 4rem;
+    margin-bottom: 20px;
+    color: var(--bright-red);
+}
+.regi-input {
+    /* border: 1px solid red; */
+    border-radius: 2px;
+    margin: 2px;
+    font-size: 20px;
+    display: block;
+    padding-left: 0.5rem;
+    border-bottom: 1px solid black;
+    outline: none;
+    border: none;
+    height: 35px;
+    width: 350px;
+    box-shadow: 1px 1px 1px rgba(0,0,0,0,5);
+    background-color: rgb(236, 230, 240);
+}
+
+.regi-input::placeholder {
+   color: var(--lightgrey);
+}
+.register-left {
+    padding-bottom: 20px;
+    /* border: 1px solid red; */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+.register-img{
+    display: flex;
+    flex-direction: row-reverse;
+    /* border: 1px solid red; */
+    justify-self: start;
+    margin-left: 20px;
+    color: var(--white);
+    width: 65%;
+    text-align: center;
+
+}
+#main-img-regi {
+    height: 45%;
+    width:45%;
+}
+
+.register-img h1 {
+    font-size: 2.5rem;
+}
+.register-img p {
+    margin-top: 1rem;
+    font-size: 1.2rem;
+}
+.regi-left-text {
+    display: flex;
+    flex-direction: column;
+}
+.error-form {
+    /* border: 1px solid red; */
+    width: 350px;
+    height: 20px;
+    font-size: 1rem;
+    /* margin-top: 0.5rem; */
+    color: var(--errorColor);
+    /* position: absolute; */
+    top: 1.8rem;
+    /* display: none; */
+}

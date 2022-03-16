@@ -1,0 +1,119 @@
+{% extends 'main.html' %} {% load static %} {% block home %}
+
+<div class="main">
+  <div class="main-container">
+    <div class="main-content">
+      <h1>Skyrocket your reults</h1>
+      <p>
+        Luxco allows you to fullly automate your business so you can focus on
+        what's important
+      </p>
+      {% if not request.user.is_authenticated %}
+      <button class="main-btn"><a href="#">Get Started</a></button>
+      {% endif %}
+    </div>
+    <div class="main-img container">
+      <img
+        src="{% static 'images/home_img.svg' %}"
+        alt="Home Image"
+        id="main-img"
+      />
+    </div>
+  </div>
+</div>
+{% comment %} MODAL CONTENT ( signup Modal) {% endcomment %}
+<div class="modal" id="signup-modal">
+  <div class="modal-content">
+    <span class="close-btn">&times;</span>
+    <div class="modal-content-left">
+      <img id="modal-img" src="{% static 'images/login.svg' %}" alt="" />
+    </div>
+    <div class="modal-content-right">
+      <div class="modal-form">
+
+        <h1>
+          Get Started With Us Today!!Create you Account by filling up the
+          information below.
+        </h1>
+        <button type="submit" class="modal-input-btn"><a href="{% url 'register' %}">Sign Up</a></button>
+        <span class="modal-input-login"
+          >Already have an Account? Login <a href="#">here</a></span
+        >
+      </div>
+    </div>
+  </div>
+</div>
+
+{% comment %} MODAL CONTENT (Login Modal) {% endcomment %}
+<div class="modal" id="login-modal">
+  <div class="modal-content">
+    <span class="close-btn close-login-btn">&times;</span>
+    <div class="modal-content-left">
+      <img id="modal-img" src="{% static 'images/login.svg' %}" alt="" />
+    </div>
+    <div class="modal-content-right">
+      <form action="{% url 'login' %}" method="POST" class="modal-form" id="form">
+          {% csrf_token %}
+        <h1>Hello 👋, It's Good to see you Back. Please Login Here.</h1>
+        <div class="form-validation">
+          <input
+            type="text"
+            class="modal-input"
+            id="username"
+            name="username"
+            placeholder="Enter Your Username"
+          />
+          <p>Error Message</p>
+        </div>
+
+        <div class="form-validation">
+          <input
+            type="password"
+            class="modal-input"
+            id="password"
+            name="password"
+            placeholder="Enter Your Password"
+          />
+          <p>Error Message</p>
+        </div>
+
+        <input type="submit" class="modal-input-btn" value="Login" />
+        <span class="modal-input-pass">Forgot Password? <a href="#">Here</a></span>
+        <span class="modal-input-signup">Don't have an Account? <a href="#">Sign Up</a></span>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+{% comment %} MODAL CONTENT (Password Forget Modal) {% endcomment %}
+<div class="modal" id="pass-modal">
+  <div class="modal-content">
+    <span class="close-btn close-pass-btn">&times;</span>
+    <div class="modal-content-left">
+      <img id="modal-img" src="{% static 'images/login.svg' %}" alt="" />
+    </div>
+    <div class="modal-content-right">
+      <form action="{% url 'resetPass' %}" method="POST" class="modal-form" id="form">
+          {% csrf_token %}
+        <h1>Hello 👋, It seems that you have Forgot your Password. To reset your Password Please Enter your Email Adress</h1>
+        <div class="form-validation">
+          <input
+            type="text"
+            class="modal-input"
+            id="email"
+            name="email"
+            placeholder="Enter Your Email"
+          />
+          <p>Error Message</p>
+        </div>
+
+        <input type="submit" class="modal-input-btn" value="Submit" />
+      </form>
+    </div>
+  </div>
+</div>
+
+<script src= {% static 'js/app.js' %}>
+</script>
+{% endblock home %}

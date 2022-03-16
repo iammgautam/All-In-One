@@ -1,0 +1,70 @@
+{% extends 'main.html' %}
+{% load static %}
+<!DOCTYPE html>
+{% block profileForm %}
+<body>
+    <form action="{% url 'profileEdit' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+    <div class="wrapper">
+        
+      <div class="wrapper-left">
+        <img src="{{user.profile.profileImg.url}}" alt="profile" width="100" />
+        {{p_form.profileImg}}
+      </div>
+      <div class="wrapper-right">
+        <div class="profileEdit">
+          <a href="{% url 'profile' %}"
+            ><img src="{% static 'images/close.svg' %}" alt=""
+          /></a>
+        </div>
+        <div class="info">
+          <h3>Account Info</h3>
+
+          <div class="info_data">
+            <div class="data-clo-2">
+                <div class="data">
+                  <h4>First Name</h4>
+                  {{p_form.f_name}}
+                </div>
+                <div class="data">
+                  <h4>Last Name</h4>
+                  {{p_form.l_name}}
+                </div>
+              </div>
+            <div class="data-clo-2">
+              <div class="data">
+                <h4>Username</h4>
+                {{p_form.username}}
+              </div>
+              <div class="data">
+                <h4>Email</h4>
+                {{p_form.email}}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="projects">
+          <h3>Personal Info</h3>
+          <div class="projects_data">
+            <div class="data">
+              <h4>Age</h4>
+              {{p_form.age}}
+            </div>
+            <div class="data">
+              <h4>City</h4>
+              {{p_form.city}}
+            </div>
+            <div class="data">
+              <h4>Country</h4>
+              {{p_form.country}}
+            </div>
+          </div>
+        </div>
+        <input type="submit" class="modal-input-btn" value="Submit" />
+      </div>
+    </div>
+</form>
+{% endblock profileForm %}   
+</body>
+</html>

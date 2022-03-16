@@ -1,0 +1,55 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block register %}
+{% comment %} <head>
+    <style>
+        #error{
+            color:red;
+        }
+    </style> {% endcomment %}
+</head>
+<div class='registrationForm'>
+    <div class="register-left">
+        <form class="form-regi" action="{% url 'register' %}" method='POST'>
+            {% csrf_token %}
+            {% for fields in forms %}
+            {{fields}}
+                {% comment %} {% if fields.help_text %}
+                <small>{{fields.help_text}}</small>
+                {% endif %} {% endcomment %}
+
+                <div class="error-form">
+                    {% for error in fields.errors %}
+                        <p>{{error}}</p>
+                    {% endfor %}
+                </div>
+            {% endfor %}
+            {% comment %} <input class='regi-input' type="text" name="" placeholder="First Name">
+            <input class='regi-input'  type="text" name="" placeholder="Last Name">
+            <input class='regi-input'  type="text" name="" placeholder="user Name">
+            <input class='regi-input'  type="text" name="" placeholder="Email">
+            <input class='regi-input'  type="password" name="" placeholder="Enter Password">
+            <input class='regi-input'  type="password" name="" placeholder="Confirm Password"> {% endcomment %}
+            <button class='regi-button' type='submit'>SignUp</button>
+        </form>
+        <span class="modal-input-login"
+          >Already have an Account? Login <a href="{% url 'home' %}">here</a></span
+        >
+    </div>
+    <div class="register-img">
+        <img
+        src="{% static 'images/registration.svg' %}"
+        alt="Home Image"
+        id="main-img-regi"
+      />
+        <div class="regi-left-text">
+            <h1>Welcome to ZengoChat</h1>
+                  <p>
+            Register yourself to enjoy the social life via ZengChat.
+                  </p>
+        </div>
+    </div>
+</div>
+
+  
+{% endblock register %}

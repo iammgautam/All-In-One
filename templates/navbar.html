@@ -1,0 +1,40 @@
+{% load static %}
+<head>
+  <link rel="stylesheet" href="{% static 'styles/navbar.css' %}" />
+</head>
+<div class="nav-container">
+  <nav class="navbar">
+    <a style="text-decoration: none" href="{% url 'home' %}">
+      <h1 id="navbar-logo">ZengoChat</h1>
+    </a>
+    <div class="menu-toggle" id="mobile-menu">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </div>
+    <ul class="nav-menu">
+      {% if request.user.is_authenticated %}
+      <li><a href="#" class="nav-links">Chat</a></li>
+      <li><a href="{% url 'profile' %}" class="nav-links">Profile</a></li>
+      <li><a href="#" class="nav-links">Task</a></li>
+      <li>
+        <a href="{% url 'logout' %}" class="nav-links nav-links-btn">Log Out</a>
+      </li>
+      {% comment %} {% else %}
+      <li>
+        <a href="{% url 'login' %}" class="nav-links nav-links-btn">Log In</a>
+      </li>
+      {% endcomment %} {% endif %}
+    </ul>
+  </nav>
+</div>
+<script>
+  // Navbar JavaScript
+  const menu = document.querySelector("#mobile-menu");
+  const menuLinks = document.querySelector(".nav-menu");
+
+  menu.addEventListener("click", () => {
+    menu.classList.toggle("is-active");
+    menuLinks.classList.toggle("active");
+  });
+</script>

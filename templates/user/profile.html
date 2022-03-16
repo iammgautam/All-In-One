@@ -1,0 +1,60 @@
+{% extends 'main.html' %}
+<!DOCTYPE html>
+{% load static %} {% block profile %}
+
+<div class="wrapper">
+  <div class="wrapper-left">
+    <img src="{{profile.profileImg.url}}" alt="profile" width="100" />
+    <h4>{{profile.f_name}} {{profile.l_name}}</h4>
+  </div>
+  <div class="wrapper-right">
+      <div class="profileEdit">
+          <a href="{% url 'profileEdit' %}"><img src="{% static 'images/edit.svg' %}" alt=""></a>
+      </div>
+    <div class="info">
+      <h3>Account Info</h3>
+      <div class="info_data">
+        <div class="data">
+          <h4>Username</h4>
+          <p>{{profile.username}}</p>
+        </div>
+        <div class="data">
+          <h4>Email</h4>
+          <p>{{profile.email}}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="projects">
+      <h3>Personal Info</h3>
+      <div class="projects_data">
+        <div class="data">
+          <h4>Age</h4>
+          {% if profile.age %}
+          <p>{{profile.age}}</p>
+          {% else %}
+          <p>-----</p>
+          {% endif %}
+        </div>
+        <div class="data">
+          <h4>City</h4>
+          {% if profile.city %}
+          <p>{{profile.city}}</p>
+          {% else %}
+          <p>-----</p>
+          {% endif %}
+        </div>
+        <div class="data">
+          <h4>Country</h4>
+          {% if profile.country %}
+          <p>{{profile.country}}</p>
+          {% else %}
+          <p>-----</p>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock profile %}
