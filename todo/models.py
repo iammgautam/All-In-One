@@ -14,3 +14,6 @@ class Todo(models.Model):
 
     def __str__(self):
         return str(self.user)
+
+    class Meta:
+        ordering = ['complete']
