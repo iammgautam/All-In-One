@@ -2,13 +2,20 @@
 
 {% block todo-delete %}
 
-<form action="{% url 'delete-task' task.id%}" method="post">
-    {% csrf_token %}
-    <label>
-        Are you Sure, You want to delete the task??
-    </label>
-    <input type="submit" value="Delete">
-</form>
+<div class="container-todo">
+    <div class="header-bar">
+        <h3>Delete Task</h3>
+        <a href="{% url 'todo-home' %}">&#8592; Back</a>
+    </div>
+    
+    <div class="card-body">
+        <form method='POST'>
+            {% csrf_token %}
+            <p> Delete The Task: <b>{{tasks.title}}</b></p>
+            <input class='button' type='submit' value='Delete'>
+        </form>
+    </div>
+</div>
 
 
 {% endblock todo-delete %}

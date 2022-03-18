@@ -14,8 +14,10 @@ def homePage(request):
     pk = request.user.id
     user = User.objects.get(id=pk)
     task = Todo.objects.filter(user = user)
+    count = task.filter(complete = False).count()
+
     context = {
-        
+        'count':count,
         'tasks':task,
     }
     return render(request, 'todo/homePage.html', context)
@@ -80,4 +82,4 @@ def search(request):
             'search':searched,
             'tasks':task,
         }
-    return render(request, 'todo/searchPage.html', context)
+    return render(request, 'todo/homePage.html', context)
